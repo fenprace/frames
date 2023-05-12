@@ -1,0 +1,86 @@
+:root {
+  --grey-900: #101010;
+  --grey-800: #202020;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.window {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--grey-800);
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.hStack {
+  flex: 1 1 auto;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.vStack {
+  flex: 1 1 auto;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.hDivider {
+  flex: 0 0 4px;
+  background-color: var(--grey-900);
+  cursor: col-resize;
+}
+
+.vDivider {
+  flex: 0 0 4px;
+  background-color: var(--grey-900);
+  cursor: row-resize;
+}
+
+.frame {
+  flex: 1 1 auto;
+  display: flex;
+  flex-flow: column nowrap;
+  position: relative;
+}
+
+.panel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1 1 auto;
+}
+
+.tabBar {
+  height: 24px;
+  width: 100%;
+  background-color: #505050;
+  border-bottom: 1px solid #000000;
+  cursor: all-scroll;
+  flex: 0 0 auto;
+  padding: 0 4px;
+  line-height: 24px;
+}
+
+.first {
+  display: flex;
+  justify-content: stretch;
+  align-items: stretch;
+  flex: 1 1 auto;
+}
+
+.second {
+  display: flex;
+  justify-content: stretch;
+  align-items: stretch;
+  flex: 1 1 auto;
+}
