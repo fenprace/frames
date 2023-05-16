@@ -12,6 +12,8 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-split": "^2.0.14",
+    "split.js": "^1.6.5",
     "uuid": "^9.0.0"
   },
   "devDependencies": {

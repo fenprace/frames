@@ -1,32 +1,32 @@
-import { Children, FC, ReactNode } from 'react'
-import { useDivider } from '../hooks/useDivider'
+import { FC, ReactNode } from 'react'
+import Split from 'react-split'
+
+type WideDirection = 'x' | 'y' | 'horizontal' | 'vertical'
+type Direction = 'horizontal' | 'vertical'
 
 export interface StackProps {
-  direction: 'x' | 'y' | 'horizontal' | 'vertical'
+  direction: WideDirection
   children?: ReactNode
 }
 
+const MAP_DIRECTION: { [key in WideDirection]: Direction } = {
+  horizontal: 'horizontal',
+  vertical: 'vertical',
+  x: 'horizontal',
+  y: 'vertical',
+}
+
+const MAP_CLASSNAME = {
+  horizontal: 'hStack',
+  vertical: 'vStack',
+}
+
 export const Stack: FC<StackProps> = ({ direction, children }) => {
-  const [stack, divider] =
-    direction === 'x' ? ['hStack', 'hDivider'] : ['vStack', 'vDivider']
-
-  const kids = Children.map(children, (child) => child)
-  const [first, second] = kids as ReactNode[]
-
-  const ref = useDivider(direction === 'x' ? 'horizontal' : 'vertical')
-
-  if (!second)
-    return (
-      <div className={stack}>
-        <div className="first">{first}</div>
-      </div>
-    )
+  const direct = MAP_DIRECTION[direction]
 
   return (
-    <div className={stack}>
-      <div className="first">{first}</div>
-      <div className={divider} ref={ref} />
-      <div className="second">{second}</div>
-    </div>
+    <Split direction={direct} className={MAP_CLASSNAME[direct]} gutterSize={4}>
+      {children}
+    </Split>
   )
 }

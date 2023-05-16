@@ -34,18 +34,6 @@ body {
   flex-flow: column nowrap;
 }
 
-.hDivider {
-  flex: 0 0 4px;
-  background-color: var(--grey-900);
-  cursor: col-resize;
-}
-
-.vDivider {
-  flex: 0 0 4px;
-  background-color: var(--grey-900);
-  cursor: row-resize;
-}
-
 .frame {
   flex: 1 1 auto;
   display: flex;
@@ -83,4 +71,16 @@ body {
   justify-content: stretch;
   align-items: stretch;
   flex: 1 1 auto;
+}
+
+.gutter {
+  background-color: var(--grey-900);
+}
+
+.gutter.gutter-horizontal {
+  cursor: col-resize;
+}
+
+.gutter.gutter-vertical {
+  cursor: row-resize;
 }
