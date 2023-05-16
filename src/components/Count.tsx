@@ -1,7 +1,8 @@
 import { global } from '../store/globalAsync'
 
 export const Count = () => {
-  const count = global.useStore((state) => state.count)
+  const count = global.use((state) => state.count)
+
   return (
     <div
       className="panel"

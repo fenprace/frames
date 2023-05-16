@@ -1,7 +1,7 @@
 import { global } from '../store/globalAsync'
 
 export const Dec = () => {
-  const decrement = global.useStore((state) => state.decrement)
+  const decrement = global.use((state) => state.decrement)
 
   return (
     <div

@@ -44,23 +44,18 @@ export class Store<State> {
     this._notify()
   }
 
-  public useStore = <Selected>(selector: (state: State) => Selected) => {
+  public use = <Selected>(selector: (state: State) => Selected) => {
     return useSyncExternalStore<Selected>(
       this.subscribe,
       useCallback(() => selector(this.getState()), [selector]),
     )
   }
-  public useSelector = this.useStore
 
-  static useStore = <State, Selected>(
+  static use = <State, Selected>(
     store: Store<State>,
     selector: (state: State) => Selected,
   ) => {
-    return store.useStore(selector)
-  }
-
-  static createUseSelector = <State>(store: Store<State>) => {
-    return store.useStore
+    return store.use(selector)
   }
 
   static create = <State>(

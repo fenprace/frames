@@ -5,9 +5,7 @@ import { global } from '../store/global'
 // }
 
 export const Inc = () => {
-  const increment = global.useSelector((state) => state.increment)
-
-  console.log('re-render')
+  const increment = global.use((state) => state.increment)
 
   return (
     <div

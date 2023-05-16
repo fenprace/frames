@@ -3,6 +3,7 @@ import { Stack } from './Layouts/Stack'
 import { Count } from './components/Count'
 import { Dec } from './components/Dec'
 import { Inc } from './components/Inc'
+import { Set } from './components/Set'
 
 export const Root = () => {
   return (
@@ -20,11 +21,11 @@ export const Root = () => {
           </Frame>
         </Stack>
         <Frame>
-          <Panel />
+          <Count />
         </Frame>
         <Stack direction="y">
           <Frame>
-            <Panel />
+            <Set />
           </Frame>
           <Frame>
             <Panel />
