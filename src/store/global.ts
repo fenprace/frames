@@ -23,3 +23,5 @@ export const global = Store.create<GlobalState>((set) => {
     set: (n: number) => set((state) => ({ ...state, count: n })),
   }
 })
+
+export type GlobalStore = Store<GlobalState>

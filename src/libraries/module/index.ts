@@ -40,6 +40,16 @@ export class ModuleManager<N extends string, M> {
   }
 }
 
-window.__MODULE = new ModuleManager<'global', GlobalState>()
-export const register = window.__MODULE.register
-export const acquire = window.__MODULE.require
+export const register = (key: 'global', module: GlobalStore) => {
+  if (!window.__MODULE)
+    window.__MODULE = new ModuleManager<'global', GlobalStore>()
+
+  window.__MODULE.register(key, module)
+}
+
+export const acquire = (key: 'global') => {
+  if (!window.__MODULE)
+    window.__MODULE = new ModuleManager<'global', GlobalStore>()
+
+  return window.__MODULE.require<GlobalStore>(key)
+}
