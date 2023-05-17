@@ -23,7 +23,3 @@ export const global = Store.create<GlobalState>((set) => {
     set: (n: number) => set((state) => ({ ...state, count: n })),
   }
 })
-
-// export const global = new Store(initial)
-
-export const useGlobal = global.use

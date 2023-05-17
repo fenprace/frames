@@ -1,10 +1,10 @@
+import { acquire } from '../libraries/module'
 import { Store } from '../libraries/store'
-import { moduleManager } from '../moduleManager'
 import { GlobalState } from './global'
 
 // const globalAsync = import('./global')
 
-const globalAsync = moduleManager.require('global')
+const globalAsync = acquire('global')
 
 const stub = async <K extends keyof GlobalState>(key: K) => {
   const store = await globalAsync
